@@ -1,0 +1,86 @@
+Sentenca
+Sentenca -> Complemento Sentenca_1
+Sentenca -> Sentenca_1
+Sentenca -> Sentenca_2
+Sentenca_1 -> Sujeito Verbo_Transitivo_Temporal Objeto
+Sentenca_1 -> Objeto Sujeito Verbo_Transitivo_Temporal
+Sentenca_1 -> Sujeito Verbo_Intransitivo_Temporal
+Sentenca_1 -> Verbo_Intransitivo_Temporal Sujeito
+Sentenca_2 -> Sujeito Verbo_Transitivo_Atemporal Objeto
+Sentenca_2 -> Objeto Sujeito Verbo_Transitivo_Atemporal
+Complemento -> Hoje
+Complemento -> Ontem
+Complemento -> Amanha
+Complemento -> Passado
+Complemento -> Futuro
+Complemento -> Segunda-feira
+Complemento -> Terca-feira
+Complemento -> Quarta-feira
+Complemento -> Quinta-feira
+Complemento -> Sexta-feira
+Complemento -> Sabado
+Complemento -> Domingo
+Sujeito -> Eu
+Sujeito -> Voce
+Sujeito -> El@
+Sujeito -> Sujeito_1
+Sujeito -> Sujeito_1 Modificador_Sujeito
+Sujeito_1 -> Homem
+Sujeito_2 -> Mulher
+Modificador_Sujeito -> Velh@
+Modificador_Sujeito -> Amig@
+Modificador_Sujeito -> Filh@
+Modificador_Sujeito -> Bonit@
+Modificador_Sujeito -> Fei@
+Modificador_Sujeito -> Legal
+Modificador_Sujeito -> Gord@
+Modificador_Sujeito -> Magr@
+Modificador_Sujeito -> Alt@
+Modificador_Sujeito -> Calm@
+Modificador_Sujeito -> Crianca
+Verbo_Intransitivo_Temporal -> Estudar
+Verbo_Intransitivo_Temporal -> Trabalhar
+Verbo_Intransitivo_Temporal -> Cantar
+Verbo_Intransitivo_Temporal -> Dormir
+Verbo_Intransitivo_Temporal -> Namorar
+Verbo_Intransitivo_Temporal -> Acordar
+Verbo_Intransitivo_Temporal -> Brincar
+Verbo_Intransitivo_Temporal -> Cozinhar
+Verbo_Intransitivo_Temporal -> Chorar
+Verbo_Intransitivo_Temporal -> Rir
+Verbo_Intransitivo_Temporal -> Viajar
+Verbo_Transitivo_Temporal -> Comprar
+Verbo_Transitivo_Temporal -> Vender
+Verbo_Transitivo_Temporal -> Encontrar
+Verbo_Transitivo_Temporal -> Mostrar
+Verbo_Transitivo_Temporal -> Procurar
+Verbo_Transitivo_Temporal -> Ganhar
+Verbo_Transitivo_Atemporal -> Gostar
+Verbo_Transitivo_Atemporal -> Gostar-Nao
+Verbo_Transitivo_Atemporal -> Amar
+Verbo_Transitivo_Atemporal -> Ter
+Objeto -> Substantivo
+Objeto -> Substantivo Adjetivo
+Substantivo -> Livro
+Substantivo -> Casa
+Substantivo -> Carro
+Substantivo -> Mochila
+Substantivo -> Televisao
+Substantivo -> Pedra
+Substantivo -> Trem
+Substantivo -> Barco
+Substantivo -> Computador
+Substantivo -> Celular
+Substantivo -> Chapeu
+Substantivo -> Tenis
+Substantivo -> Oculos
+Substantivo -> Relogio
+Substantivo -> Camisa
+Adjetivo -> Vermelh@
+Adjetivo -> Verde
+Adjetivo -> Azul
+Adjetivo -> Amarel@
+Adjetivo -> Pret@
+Adjetivo -> Branc@
+Adjetivo -> Bonit@
+Adjetivo -> Fei@
