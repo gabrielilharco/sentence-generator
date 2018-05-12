@@ -2,10 +2,13 @@ import argparse
 import random
 import operator
 
-terminals = set()
-num_expansions = {}
+def find_terminals(grammar):
+	"""
+    For a given grammar, return a set of the terminal symbols.
 
-def populate_terminals():
+    :param grammar: The grammar (set of productions rules).
+    :return: set of terminal symbols.
+    """
 	terminals = set()
 	for key, val in grammar.items():
 		for word_list in val:
@@ -14,26 +17,13 @@ def populate_terminals():
 					terminals.add(word)
 	return terminals
 
-def calc_expansions(term):
-	if term in num_expansions:
-		return num_expansions[term]
-	if term in terminals:
-		num_expansions[term] = 1
-	else:
-		num_exp = 0
-		for sntc in grammar[term]:
-			curr = 1
-			for t in sntc:
-				curr *= calc_expansions(t)
-			num_exp += curr
-		num_expansions[term] = num_exp
-	return num_expansions[term]
-
-def count_expansions():
-	num_expansions = {}
-	calc_expansions('Sentenca')
-
 def analyze_stats(sentences):
+	"""
+    For a given set of sentences, print how many times each symbol appears,
+    printing statistics sorted by occurrance.
+
+    :param sentences: List of sentences.
+    """
 	counts = {}
 	for sentence in sentences:
 		for element in sentence.split():
@@ -47,8 +37,20 @@ def analyze_stats(sentences):
 	for key, val in sorted_counts:
 		print("%5d %s" % (val, key))
 
-def generate_random_sentence(print_sentence = True):
-	sentence = ['Sentenca']
+def generate_random_sentence(grammar, start_symbol, print_sentence = True):
+	"""
+    For a given grammar (set of production rules) and a starting symbol,
+    randomly generate a sentence using the production rules.
+
+    :param sentences: The grammar (set of productions rules).
+    :param start_symbol: The starting symbol.
+    :param print_sentence: Wether to print the generated sentence. Defaults to true.
+    :returns: A randomly generated sentence.
+    """
+    # Starting symbol must be a part of the grammar
+    assert start_symbol in grammar
+    
+    sentence = [start_symbol]
 	idx = 0
 	while idx < len(sentence):
 		if sentence[idx] in terminals:
@@ -64,16 +66,16 @@ def generate_random_sentence(print_sentence = True):
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description='Grammar utils')
-	parser.add_argument('--print_atoms', action='store_true',
-					  help='Print atoms of the grammar')
+	parser.add_argument('--grammar', type='string', default='grammar.txt',
+					  help='Path to grammar file.')
+	parser.add_argument('--print_terminal_symbols', type=bool, default=False,
+					  help='Print the terminal symbols of the grammar.')
 	parser.add_argument('--num_sentences', type=int, default=0,
 					  help='The number of random sentences to generate.')
-	parser.add_argument('--include_atoms', type=bool, default=False,
-					  help='Wheather to include atoms or not.')
 
 	args = parser.parse_args()
 
-	terminals = populate_terminals()
+	terminals = find_terminals()
 	
 	if args.print_atoms:
 		for terminal in sorted(terminals):
@@ -85,11 +87,5 @@ if __name__ == '__main__':
 	for i in range(args.num_sentences):
 		sentences.append(generate_random_sentence(False))
 
-	offset = 0
-	if args.include_atoms:
-		for terminal in sorted(terminals):
-			print("%d. %s" % (offset+1, terminal.upper()))
-			offset += 1
-
 	for i in range(len(sentences)):
-		print("%d. %s" % (i+offset+1, sentences[i]))
+		print("%d. %s" % (i, sentences[i]))
